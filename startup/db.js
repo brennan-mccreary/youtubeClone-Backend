@@ -1,6 +1,8 @@
+//Imports
 const mongoose = require('mongoose');
 const config = require('config');
 
+//Connect to Database
 function connectDB() {
     mongoose
     .connect(
@@ -10,5 +12,5 @@ function connectDB() {
     .catch((err) => console.log(`Could not connect to MongoDB. ERROR: ${err}`));
 }
 
-
+//Exports
 module.exports = connectDB;
