@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 //Video Schema
 const videoSchema = new mongoose.Schema({
-    //required properties
+    videoId: { type: String, required: true}
 });
 
 //Video model
