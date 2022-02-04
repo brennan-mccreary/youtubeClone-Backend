@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 
 //Routes
-const videos = require('./routes/videos');
+const comments = require('./routes/comments');
 
 //Connect to Database
 connectDB();
@@ -13,7 +13,7 @@ connectDB();
 //App use list
 app.use(cors());
 app.use(express.json());
-app.use('/api/videos', videos);
+app.use('/api/comments', comments);
 
 //Listen on port 5002
 const port = process.env.PORT || 5002;
