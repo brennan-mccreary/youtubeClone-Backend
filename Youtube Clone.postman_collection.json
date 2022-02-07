@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "f73b297c-fc82-4842-a6e1-5303ccae27eb",
+		"name": "Youtube Clone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search Results by Query Input",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.googleapis.com/youtube/v3/search?q=cats&type=video&key=AIzaSyCHKOUY4rL2wnphKgnJXDf-xdNOGcPCpTg&fields=items(id,snippet(channelTitle,title,description,thumbnails))&part=snippet",
+					"protocol": "https",
+					"host": [
+						"www",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"youtube",
+						"v3",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "cats"
+						},
+						{
+							"key": "type",
+							"value": "video"
+						},
+						{
+							"key": "key",
+							"value": "AIzaSyCHKOUY4rL2wnphKgnJXDf-xdNOGcPCpTg"
+						},
+						{
+							"key": "fields",
+							"value": "items(id,snippet(channelTitle,title,description,thumbnails))"
+						},
+						{
+							"key": "part",
+							"value": "snippet"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Videos Related to Id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Post New Comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"videoId\": \"UehdghUY01\",\r\n    \"text\": \"Oh, I love this video\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5002/api/comments/add",
+					"host": [
+						"localhost"
+					],
+					"port": "5002",
+					"path": [
+						"api",
+						"comments",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comments by Video Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5002/api/comments/fetch/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "5002",
+					"path": [
+						"api",
+						"comments",
+						"fetch",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "test"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add like to comment",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:5002/api/comments/like/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "5002",
+					"path": [
+						"api",
+						"comments",
+						"like",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "61fc6e01db5cf196e2c4f21a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add dislike to comment",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:5002/api/comments/dislike/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "5002",
+					"path": [
+						"api",
+						"comments",
+						"dislike",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Reply",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"This is a reply to your comment\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5002/api/comments/reply/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "5002",
+					"path": [
+						"api",
+						"comments",
+						"reply",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "61fc6e01db5cf196e2c4f21a"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "API Key",
+			"value": "AIzaSyBmJIc6fBDx5r0jHztpbrIVFb8cVGFHRfA"
+		}
+	]
+}
