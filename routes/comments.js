@@ -69,7 +69,7 @@ router.put('/dislike/:id', async (req, res) => {
     }
 });
 
-//PUT Reply to Comment
+//POST Reply to Comment
 router.post('/reply/:id', async (req, res) => {
     try{
         const comment = await Comment.findById(req.params.id);
